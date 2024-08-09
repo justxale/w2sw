@@ -18,7 +18,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "types": [
-      "node_modules/@types/markdown-it"
+      "./node_modules/@types/markdown-it"
     ]
   },
   "include": ["vite.config.ts"]
