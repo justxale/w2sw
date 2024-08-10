@@ -8,6 +8,9 @@ export type DataRecord = {
 
     hasTab?: boolean
     tabData?: CollapsableTabMeta,
+
+    hasImages?: boolean,
+    images?: GalleryImage[],
 }
 
 export type CollapsableTabMeta = {
@@ -15,6 +18,15 @@ export type CollapsableTabMeta = {
     titleOnShown: string,
     hidden: boolean
     md: string
+}
+
+export type GalleryImage = {
+    title: string,
+    imagePath: string,
+}
+
+type GalleryMeta = {
+    images: GalleryImage[],
 }
 
 const basicData = [
@@ -58,12 +70,26 @@ export const dataMapping = async (): Promise<Record<string, DataRecord>> => {
 
         try {
             res[data.id].tabData = {
-                ...(await import(`./${data.id}/tab/meta.json`)),
+                ...await import(`./${data.id}/tab/meta.json`),
                 md: (await import(`./${data.id}/tab/paragraph.md`)).default
             }
             res[data.id].hasTab = true
         } catch (e) {
             res[data.id].hasTab = false
+        }
+
+        try {
+            const galleryMeta = await import(`./${data.id}/galleryMeta.json`) as GalleryMeta
+            const images: GalleryImage[] = []
+            for (const image of galleryMeta.images) {
+                images.push(
+                    { title: image.title, imagePath: `/structs/${data.id}_images/${image.imagePath}` }
+                )
+            }
+            res[data.id].images = images;
+            res[data.id].hasImages = true
+        } catch (e) {
+            res[data.id].hasImages = false
         }
 
     }

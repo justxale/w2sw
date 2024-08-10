@@ -9,6 +9,7 @@ import StructPage from "./components/wiki/StructPage.vue";
 
 import './styles/index.css'
 import './styles/colors.css'
+import '@splidejs/vue-splide/css'
 
 const app = createApp(App)
 const router = createRouter({

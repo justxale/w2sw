@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import {onMounted, ref} from "vue";
 import Markdown from "../sys/Markdown.vue";
-import {checkForDataExistence, CollapsableTabMeta, dataMapping} from "../../structures/data.ts";
+import {checkForDataExistence, CollapsableTabMeta, dataMapping, GalleryImage} from "../../structures/data.ts";
 import HiddenParagraph from "./CollapsableParagraph.vue";
 import {useRouter} from "vue-router";
+import {Options} from "@splidejs/vue-splide"
 
 const props = defineProps<{
     id: string
@@ -11,10 +12,12 @@ const props = defineProps<{
 const title = ref<string>('')
 const description = ref<string>('')
 const paragraph = ref<string>('')
+const galleryData = ref<GalleryImage[]>()
 const credits = ref<string>('')
-let imgUrl = ''
+let previewUrl = ''
 
 const hasTab = ref<boolean>(false)
+const hasGallery = ref<boolean>(false)
 const tabData = ref<CollapsableTabMeta>({hidden: false, md: "", title: "", titleOnShown: ""})
 
 onMounted(async () => {
@@ -29,13 +32,27 @@ onMounted(async () => {
     description.value = fetchedData.mdDescription ? fetchedData.mdDescription : ''
     paragraph.value = fetchedData.mdParagraph ? fetchedData.mdParagraph : ''
     credits.value = fetchedData.mdCredits ? fetchedData.mdCredits : ''
-    imgUrl = fetchedData.previewPic
+    previewUrl = fetchedData.previewPic
 
     if (fetchedData.hasTab && fetchedData.tabData) {
         hasTab.value = fetchedData.hasTab
         tabData.value = fetchedData.tabData
     }
+
+    if (fetchedData.hasImages && fetchedData.images && fetchedData.images.length > 0) {
+        hasGallery.value = fetchedData.hasImages
+        galleryData.value = fetchedData.images
+    }
 })
+
+const splideOptions: Options = {
+    type: 'loop',
+    pagination: false,
+    fixedHeight: "400px",
+    fixedWidth: "600px",
+    cover: true,
+    gap: "32px"
+}
 </script>
 
 <template>
@@ -43,9 +60,16 @@ onMounted(async () => {
         <h1>{{title}}</h1>
         <div class="title">
             <Markdown class="description-text" :rawString="description"/>
-            <img :src="imgUrl" alt=""/>
+            <img :src="previewUrl" alt=""/>
         </div>
         <Markdown class="paragraph-text" :raw-string="paragraph"/>
+        <div class="gallery" v-if="hasGallery">
+            <Splide :options="splideOptions">
+                <SplideSlide v-for="image in galleryData" :key="image.title">
+                    <img :src="image.imagePath" :alt="image.title"/>
+                </SplideSlide>
+            </Splide>
+        </div>
         <HiddenParagraph v-if="hasTab" :tab-data="tabData"/>
         <div class="credits">
             <Markdown :raw-string="credits"/>

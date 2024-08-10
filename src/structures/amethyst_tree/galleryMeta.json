@@ -1,0 +1,12 @@
+{
+    "images": [
+        {
+            "imagePath": "1.png",
+            "title": "Тестовый вид 1"
+        },
+        {
+            "imagePath": "2.png",
+            "title": "Тестовый вид 2"
+        }
+    ]
+}
