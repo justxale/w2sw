@@ -7,10 +7,10 @@ export type DataRecord = {
     mdCredits?: string,
 
     hasTab?: boolean
-    tabData?: CollapsableTabData,
+    tabData?: CollapsableTabMeta,
 }
 
-export type CollapsableTabData = {
+export type CollapsableTabMeta = {
     title: string,
     titleOnShown: string,
     hidden: boolean

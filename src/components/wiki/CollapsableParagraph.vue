@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import Markdown from "../sys/Markdown.vue";
 import {ref} from "vue";
-import {CollapsableTabData} from "../../structures/data.ts";
+import {CollapsableTabMeta} from "../../structures/data.ts";
 
 const props = defineProps<{
-    tabData: CollapsableTabData
+    tabData: CollapsableTabMeta
 }>()
 const className = "collapsable-paragraph" + (props.tabData.hidden ? 'hidden' : '')
 const isRevealed = ref<boolean>(false)

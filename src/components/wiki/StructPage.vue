@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {onMounted, ref} from "vue";
 import Markdown from "../sys/Markdown.vue";
-import {checkForDataExistence, CollapsableTabData, dataMapping} from "../../structures/data.ts";
+import {checkForDataExistence, CollapsableTabMeta, dataMapping} from "../../structures/data.ts";
 import HiddenParagraph from "./CollapsableParagraph.vue";
 import {useRouter} from "vue-router";
 
@@ -15,7 +15,7 @@ const credits = ref<string>('')
 let imgUrl = ''
 
 const hasTab = ref<boolean>(false)
-const tabData = ref<CollapsableTabData>({hidden: false, md: "", title: "", titleOnShown: ""})
+const tabData = ref<CollapsableTabMeta>({hidden: false, md: "", title: "", titleOnShown: ""})
 
 onMounted(async () => {
     if (!checkForDataExistence(props.id)) {
