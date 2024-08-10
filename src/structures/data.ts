@@ -22,6 +22,10 @@ const basicData = [
     {id: 'sculk_sanctuary', title: "Скалковое святилище"},
 ]
 
+export function checkForDataExistence(id: string) {
+    return !!basicData.find(obj => obj.id === id);
+}
+
 export const dataMapping = async (): Promise<Record<string, DataRecord>> => {
     const res: Record<string, DataRecord> = {}
 
