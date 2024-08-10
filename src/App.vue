@@ -1,11 +1,17 @@
 <script setup lang="ts">
-import Header from "./components/Header.vue";
+import HeaderComponent from "./components/HeaderComponent.vue";
+import FooterComponent from "./components/FooterComponent.vue";
 </script>
 
 <template>
-    <Header/>
-    <RouterView/>
+    <HeaderComponent/>
+    <RouterView class="page-container"/>
+    <FooterComponent/>
 </template>
 
 <style scoped>
+.page-container {
+    margin-left: 10vw;
+    margin-right: 10vw;
+}
 </style>

@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import markdownit from 'markdown-it'
-const md = markdownit()
+import markdownitFootnote from 'markdown-it-footnote'
+const md = markdownit({
+    linkify: true,
+    html: true,
+})
+md.use(markdownitFootnote)
 defineProps<{
     rawString: string
 }>()
