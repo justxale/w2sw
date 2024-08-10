@@ -30,14 +30,16 @@ const links: FooterColumn[] = [
                         &copy; justxale
                     </div>
                 </div>
-                <div v-for="linkColumn in links" class="footer-column">
-                    <h4>{{ linkColumn.title }}</h4>
-                    <a v-for="link in linkColumn.links" :href="link.link">{{ link.title }}</a>
+                <div class="footer-columns">
+                    <div v-for="linkColumn in links" class="footer-column">
+                        <h4>{{ linkColumn.title }}</h4>
+                        <a v-for="link in linkColumn.links" :href="link.link">{{ link.title }}</a>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="footer-warning">
-            W2SW НЕ ЯВЛЯЕТСЯ ОФИЦИАЛЬНЫМ ПРОЕКТОМ УМ И НИКАК НЕ СВЯЗАН С АДМИНИСТРАЦИЕЙ.
+            W2SW НЕ ЯВЛЯЕТСЯ ОФИЦИАЛЬНЫМ ПРОЕКТОМ УМ И НИКАК НЕ СВЯЗАН С АДМИНИСТРАЦИЕЙ СЕРВЕРА.
         </div>
     </footer>
 </template>
@@ -72,6 +74,10 @@ footer {
     margin-top: 16px;
 }
 
+.footer-columns {
+    margin-top: 32px;
+}
+
 .footer-column {
     display: flex;
     flex-direction: column;
@@ -88,7 +94,7 @@ footer {
 
 .footer-content {
     display: flex;
-    margin-bottom: 128px;
+    margin-bottom: 96px;
     gap: 256px;
 }
 
