@@ -17,7 +17,7 @@ const router = createRouter({
         { path: '/', component: AllStructs},
         { path: '/struct', component: AllStructs },
         { path: '/struct/:id', component: StructPage, props: true },
-        { path: '/:pathMatch(.*)*', component: NotFound },
+        { path: '/:pathMatch(.*)*', component: NotFound, name: "notfound" },
     ]
 })
 app.use(VueSplide)
