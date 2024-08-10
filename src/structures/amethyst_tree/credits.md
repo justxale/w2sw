@@ -1,4 +1,5 @@
 - darcord - Автор-составитель
+- justxale - Редактор
 - Mulldei4 - Фотограф
 - \_Liquid_ - Фотограф
 - Eschposchmak - Дополнительный информатор
