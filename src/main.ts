@@ -7,7 +7,7 @@ import AllStructs from "./components/wiki/AllStructs.vue";
 import NotFound from "./components/sys/NotFound.vue";
 import StructPage from "./components/wiki/StructPage.vue";
 
-import './styles/style.css'
+import './styles/index.css'
 import './styles/colors.css'
 
 const app = createApp(App)
