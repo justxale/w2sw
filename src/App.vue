@@ -13,5 +13,6 @@ import FooterComponent from "./components/FooterComponent.vue";
 .page-container {
     margin-left: 10vw;
     margin-right: 10vw;
+    min-height: 60vh;
 }
 </style>
