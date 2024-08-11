@@ -10,7 +10,7 @@ type FooterColumn = {
 
 const links: FooterColumn[] = [
     {
-        title: 'Resources',
+        title: 'Ресурсы',
         links: [
             {title: "GitHub", link: "https://github.com/justxale/w2sw"},
             {title: "Руководство", link: "https://github.com/justxale/w2sw/tree/main/docs"},
@@ -46,13 +46,11 @@ const links: FooterColumn[] = [
 
 <style scoped>
 footer {
-    max-height: 40vh;
     background: radial-gradient(circle at 100% 150%, var(--color-brand-green) 0%, transparent 500px), radial-gradient(circle at 80% 170%, var(--color-brand-purple) 0%, transparent 500px), var(--color-gray-200);
     display: flex;
     flex-direction: column;
 
     margin-top: 128px;
-    font-size: 16px;
 }
 
 .footer-container {
@@ -69,7 +67,6 @@ footer {
 }
 
 .footer-note {
-    font-size: 16px;
     margin-left: 32px;
     margin-top: 16px;
 }
@@ -117,7 +114,6 @@ footer {
     }
 
     .footer-warning {
-        font-size: 14px;
         margin: 16px;
     }
 
@@ -125,5 +121,9 @@ footer {
         width: min(70vw, 512px);
         height: auto;
     }
+}
+
+@media screen and (max-width: 500px) {
+
 }
 </style>

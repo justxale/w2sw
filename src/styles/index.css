@@ -60,7 +60,7 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (min-width: 1500px) {
+@media screen and (min-width: 1500px) {
     :root {
         font-size: 20px;
     }
@@ -70,5 +70,15 @@ button:focus-visible {
         line-height: 1.1;
         background-color: var(--color-highlight-100);
         padding: 24px
+    }
+}
+
+@media screen and (max-width: 500px) {
+    :root {
+        font-size: 12px;
+    }
+
+    h1 {
+        font-size: 24px;
     }
 }

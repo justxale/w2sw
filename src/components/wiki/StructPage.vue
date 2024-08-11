@@ -79,7 +79,6 @@ onMounted(async () => {
 }
 
 .credits {
-    font-size: 16px;
     color: var(--color-white-200);
     display: flex;
     justify-content: end;
@@ -100,7 +99,6 @@ onMounted(async () => {
     }
 
     .credits {
-        font-size: 16px;
         color: var(--color-white-200);
         display: flex;
         justify-content: center;

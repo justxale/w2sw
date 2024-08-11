@@ -14,7 +14,7 @@ const splideOptions = ref<Options>({
     fixedHeight: "min(60vw, 600px)",
     fixedWidth: "min(80vw, 800px)",
     perPage: 1,
-    width: "min(60vw, 1200px)",
+    width: "min(80vw, 1200px)",
     cover: true,
     gap: "32px",
     focus: 'center'
