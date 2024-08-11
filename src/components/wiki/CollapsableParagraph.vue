@@ -6,7 +6,7 @@ import {CollapsableTabMeta} from "../../structures/data.ts";
 const props = defineProps<{
     tabData: CollapsableTabMeta
 }>()
-const className = "collapsable-paragraph" + (props.tabData.hidden ? 'hidden' : '')
+const className = "collapsable-paragraph" + (props.tabData.hidden ? ' hidden' : '')
 const isRevealed = ref<boolean>(false)
 const buttonTitle = ref<string>(props.tabData.title)
 
@@ -25,12 +25,20 @@ function revealTab() {
 </template>
 
 <style scoped>
-.collapsable-paragraph.hidden button {
-    opacity: 0;
-    padding: 12px;
+.collapsable-paragraph {
+    border-top: 1px solid var(--color-white-200);
+    padding-top: 32px;
+    display: flex;
+    flex-direction: column;
 }
 
 .collapsable-paragraph button {
-    padding: 12px;
+    align-self: center;
+    width: 60vw;
+    margin-bottom: 32px;
+}
+
+.collapsable-paragraph.hidden button {
+    opacity: 0;
 }
 </style>
