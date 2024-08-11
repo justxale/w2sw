@@ -81,7 +81,29 @@ onMounted(async () => {
     justify-content: end;
 }
 
-@media (min-width: 1500px) {
+@media screen and (max-width: 970px) {
+    .title {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 32px;
+        align-items: center;
+    }
+
+    .title img {
+        width: 50vw;
+        height: 50vw;
+        object-fit: cover;
+    }
+
+    .credits {
+        font-size: 16px;
+        color: var(--color-white-200);
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media screen and (min-width: 1500px) {
     .title img {
         width: 384px;
         height: 384px;

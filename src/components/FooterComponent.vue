@@ -98,11 +98,32 @@ footer {
     gap: 256px;
 }
 
-
-
 .footer-warning {
     color: var(--color-white-200);
     align-self: center;
     margin-bottom: 16px;
+}
+
+@media screen and (max-width: 1200px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 32px;
+        margin-bottom: 32px;
+    }
+
+    .footer-columns {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .footer-warning {
+        font-size: 14px;
+        margin: 16px;
+    }
+
+    .footer-logo {
+        width: min(70vw, 512px);
+        height: auto;
+    }
 }
 </style>
