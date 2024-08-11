@@ -30,19 +30,19 @@ type GalleryMeta = {
     images: GalleryImage[],
 }
 
-const basicData = [
+export const basicStructureData = [
     {id: 'amethyst_tree', title: "Аметистовое Дерево"},
     {id: 'sculk_sanctuary', title: "Скалковое святилище"},
 ]
 
 export function checkForDataExistence(id: string) {
-    return !!basicData.find(obj => obj.id === id);
+    return !!basicStructureData.find(obj => obj.id === id);
 }
 
 export const dataMapping = async (): Promise<Record<string, DataRecord>> => {
     const res: Record<string, DataRecord> = {}
 
-    for (const data of basicData) {
+    for (const data of basicStructureData) {
         res[data.id] = {
             id: data.id,
             title: data.title,
