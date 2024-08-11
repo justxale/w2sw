@@ -7,7 +7,8 @@ permissions:
 
 on:
   push:
-    branches: [$default-branch]
+    branches:
+      - "main"
   workflow_dispatch:
 
 concurrency:
@@ -53,3 +54,5 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: 'w2sw-ghpages'
