@@ -2,11 +2,13 @@
     "images": [
         {
             "imagePath": "1.png",
-            "title": "Тестовый вид 1"
+            "title": "Аметистовое дерево в дубовом лесу",
+            "author": "justxale"
         },
         {
             "imagePath": "2.png",
-            "title": "Тестовый вид 2"
+            "title": "Аметистовое дерево у склона горы",
+            "author": "eposss"
         }
     ]
 }
