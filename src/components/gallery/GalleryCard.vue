@@ -9,7 +9,7 @@ defineProps<{
 <template>
     <SplideSlide :key="image.title" class="slide-container">
 
-        <img :src="image.imagePath" :alt="image.title"/>
+        <img :src="image.imagePath" :alt="image.title" loading="lazy"/>
         <div class="tag-container">
             <div class="slide-title">{{ image.title }}</div>
             <div class="slide-author">by {{ image.author }}</div>
