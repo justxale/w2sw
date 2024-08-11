@@ -64,7 +64,7 @@ export const dataMapping = async (): Promise<Record<string, DataRecord>> => {
             console.warn(`Check your folder! File credits.md is missing!`)
         }
         try {
-            res[data.id].previewPic = (await import(`./${data.id}/preview.png`)).default
+            res[data.id].previewPic = (await import(`./${data.id}/preview.jpg`)).default
         } catch {
             console.warn(`File preview.png for structure ${data.id} is missing!`)
         }
