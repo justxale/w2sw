@@ -1,23 +1,23 @@
 {
     "images": [
         {
-            "imagePath": "1.png",
+            "imagePath": "1.jpg",
             "author": "Vocoffee"
         },
         {
-            "imagePath": "2.png",
+            "imagePath": "2.jpg",
             "author": "Vocoffee"
         },
         {
-            "imagePath": "3.png",
+            "imagePath": "3.jpg",
             "author": "Vocoffee"
         },
         {
-            "imagePath": "4.png",
+            "imagePath": "4.jpg",
             "author": "Vocoffee"
         },
         {
-            "imagePath": "5.png",
+            "imagePath": "5.jpg",
             "author": "Vocoffee"
         }
     ]
