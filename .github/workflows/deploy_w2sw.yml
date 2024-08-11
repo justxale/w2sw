@@ -38,7 +38,7 @@ jobs:
 
       - name: Upload artifact
         id: upload-artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v1
         with:
           name: 'w2sw-ghpages'
           path: './dist'
