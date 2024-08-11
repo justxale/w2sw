@@ -21,28 +21,31 @@ const hasGallery = ref<boolean>(false)
 const tabData = ref<CollapsableTabMeta>({hidden: false, md: "", title: "", titleOnShown: ""})
 
 onMounted(async () => {
+    const router = useRouter()
     if (!checkForDataExistence(props.id)) {
-        const router = useRouter()
         await router.push({name: "notfound"})
     }
 
-    const fetchedData = (await dataMapping())[props.id]
+    try {
+        const fetchedData = (await dataMapping())[props.id]
+        title.value = fetchedData.title
+        document.title = `${title.value} | W2SW`
+        description.value = fetchedData.mdDescription ? fetchedData.mdDescription : ''
+        paragraph.value = fetchedData.mdParagraph ? fetchedData.mdParagraph : ''
+        credits.value = fetchedData.mdCredits ? fetchedData.mdCredits : ''
+        previewUrl = fetchedData.previewPic
 
-    title.value = fetchedData.title
-    document.title = `${title.value} | W2SW`
-    description.value = fetchedData.mdDescription ? fetchedData.mdDescription : ''
-    paragraph.value = fetchedData.mdParagraph ? fetchedData.mdParagraph : ''
-    credits.value = fetchedData.mdCredits ? fetchedData.mdCredits : ''
-    previewUrl = fetchedData.previewPic
+        if (fetchedData.hasTab && fetchedData.tabData) {
+            hasTab.value = fetchedData.hasTab
+            tabData.value = fetchedData.tabData
+        }
 
-    if (fetchedData.hasTab && fetchedData.tabData) {
-        hasTab.value = fetchedData.hasTab
-        tabData.value = fetchedData.tabData
-    }
-
-    if (fetchedData.hasImages && fetchedData.images && fetchedData.images.length > 0) {
-        hasGallery.value = fetchedData.hasImages
-        galleryData.value = fetchedData.images
+        if (fetchedData.hasImages && fetchedData.images && fetchedData.images.length > 0) {
+            hasGallery.value = fetchedData.hasImages
+            galleryData.value = fetchedData.images
+        }
+    } catch (e) {
+        await router.push({name: "notfound"})
     }
 })
 </script>
