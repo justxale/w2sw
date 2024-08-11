@@ -13,7 +13,7 @@ const links: FooterColumn[] = [
         title: 'Resources',
         links: [
             {title: "GitHub", link: "https://github.com/justxale/w2sw"},
-            {title: "Руководство", link: "https://github.com/justxale/w2sw/docs"},
+            {title: "Руководство", link: "https://github.com/justxale/w2sw/tree/main/docs"},
         ]
     }
 ]
