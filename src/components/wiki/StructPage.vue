@@ -29,6 +29,7 @@ onMounted(async () => {
     const fetchedData = (await dataMapping())[props.id]
 
     title.value = fetchedData.title
+    document.title = `${title.value} | W2SW`
     description.value = fetchedData.mdDescription ? fetchedData.mdDescription : ''
     paragraph.value = fetchedData.mdParagraph ? fetchedData.mdParagraph : ''
     credits.value = fetchedData.mdCredits ? fetchedData.mdCredits : ''

@@ -1,6 +1,7 @@
 <script setup lang="ts">
-
 import {basicStructureData} from "../../structures/data.ts";
+
+document.title = "Все статьи | W2SW"
 </script>
 
 <template>
