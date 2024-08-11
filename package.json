@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc -b && vite build",
+    "build": "vue-tsc -b && vite build && cd dist && cp index.html 404.html",
+    "build:dev": "vue-tsc -b && vite build && cd dist",
     "preview": "vite preview"
   },
   "dependencies": {
