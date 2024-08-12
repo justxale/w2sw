@@ -33,7 +33,9 @@ type GalleryMeta = {
 export const basicStructureData = [
     {id: 'amethyst_tree', title: "Аметистовое дерево"},
     {id: 'sculk_sanctuary', title: "Скалковое святилище"},
+    {id: 'aether_portal', title: "Портал в Рай"},
     {id: 'nether_ship', title: "Адский корабль"},
+    {id: 'realms_fountain', title: "Фонтан города Реалмс"},
 ]
 
 export function checkForDataExistence(id: string) {
