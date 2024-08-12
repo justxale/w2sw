@@ -48,8 +48,11 @@ onMounted(async () => {
         await router.push({name: "notfound"})
     }
     document.querySelector('meta[property="og:url"]')!.setAttribute("content", `https://www.w2sw.justxale.com/struct/${props.id}`);
+    document.querySelector('meta[property="twitter:url"]')!.setAttribute("content", `https://www.w2sw.justxale.com/struct/${props.id}`);
     document.querySelector('meta[property="og:title"]')!.setAttribute("content", `${title.value} | W2SW`);
+    document.querySelector('meta[property="twitter:title"]')!.setAttribute("content", `${title.value} | W2SW`);
     document.querySelector('meta[property="og:description"]')!.setAttribute("content", `Узнайте всё интересное о структуре УМа под названием "${title.value}"!`);
+    document.querySelector('meta[property="twitter:description"]')!.setAttribute("content", `Узнайте всё интересное о структуре УМа под названием "${title.value}"!`);
 })
 </script>
 

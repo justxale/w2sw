@@ -3,7 +3,9 @@ import {basicStructureData} from "../../structures/data.ts";
 
 document.title = "Все статьи | W2SW"
 document.querySelector('meta[property="og:url"]')!.setAttribute("content", "https://www.w2sw.justxale.com/");
+document.querySelector('meta[property="twitter:url"]')!.setAttribute("content", "https://www.w2sw.justxale.com/");
 document.querySelector('meta[property="og:title"]')!.setAttribute("content", "Все статьи | W2SW");
+document.querySelector('meta[property="twitter:title"]')!.setAttribute("content", "Все статьи | W2SW");
 </script>
 
 <template>
