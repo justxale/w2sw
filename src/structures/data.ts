@@ -2,14 +2,14 @@ export type DataRecord = {
     id: string,
     title: string,
     previewPic: string
-    mdDescription?: string,
-    mdParagraph?: string,
-    mdCredits?: string,
+    mdDescription: string,
+    mdParagraph: string,
+    mdCredits: string,
 
-    hasTab?: boolean
+    hasTab: boolean
     tabData?: CollapsableTabMeta,
 
-    hasImages?: boolean,
+    hasImages: boolean,
     images?: GalleryImage[],
 }
 
@@ -46,7 +46,14 @@ export const dataMapping = async (): Promise<Record<string, DataRecord>> => {
         res[data.id] = {
             id: data.id,
             title: data.title,
-            previewPic: ''
+            previewPic: (await import(`./preview-placeholder.jpg`)).default,
+
+            mdDescription: "Описание ещё не готово :(",
+            mdParagraph: "Основная статья ещё не готова :(",
+            mdCredits: "Список авторов ещё не готов :(",
+
+            hasImages: false,
+            hasTab: false
         }
         try {
             res[data.id].mdDescription = (await import(`./${data.id}/description.md`)).default
@@ -66,7 +73,7 @@ export const dataMapping = async (): Promise<Record<string, DataRecord>> => {
         try {
             res[data.id].previewPic = (await import(`./${data.id}/preview.jpg`)).default
         } catch {
-            console.warn(`File preview.png for structure ${data.id} is missing!`)
+            console.warn(`File preview.jpg for structure ${data.id} is missing!`)
         }
 
         try {
