@@ -7,8 +7,6 @@ import GalleryCard from "./GalleryCard.vue";
 defineProps<{
     galleryData: GalleryImage[]
 }>()
-
-
 const splideOptions = ref<Options>({
     type: 'loop',
     fixedWidth: "min(80vw, 800px)",
@@ -35,5 +33,13 @@ const splideOptions = ref<Options>({
     padding-bottom: 32px;
     border-bottom: var(--color-white-200) 1px solid;
     border-top: var(--color-white-200) 1px solid;
+}
+</style>
+
+<style>
+.splide__arrow {
+    height: 6em !important;
+    width: 3em !important;
+    border-radius: unset !important;
 }
 </style>

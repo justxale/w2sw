@@ -1,22 +1,34 @@
 <script setup lang="ts">
 import {GalleryImage} from "../../structures/data.ts";
+import FullscreenSlide from "./FullscreenSlide.vue";
+import {provide, ref} from "vue";
 
 const props = defineProps<{
-    image: GalleryImage
+    image: GalleryImage,
 }>()
+const isActive = ref<boolean>(false)
+provide('isActive', isActive)
 const imageUrl = `${window.location.protocol}//${window.location.host}${props.image.imagePath}`
 const style = `background: url("${imageUrl}") center center / cover no-repeat`
+
 </script>
 
 <template>
     <SplideSlide :key="image.title">
         <div class="slide-image" :style="style">
-            <span></span>
+            <div class="show-full-button" @click="isActive = !isActive">
+                Нажмите, чтобы раскрыть
+            </div>
         </div>
         <div class="tag-container">
             <h4>{{ image.title }}</h4>
             <div class="slide-author" v-if="image.author">by {{ image.author }}</div>
         </div>
+        <Teleport to="body">
+            <Transition name="show">
+                <FullscreenSlide :image="image" v-if="isActive"/>
+            </Transition>
+        </Teleport>
     </SplideSlide>
 </template>
 
@@ -44,5 +56,34 @@ h4 {
 .slide-author {
     align-self: flex-end;
     margin: 8px;
+}
+
+.show-full-button {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-gray-100);
+    transition: opacity 100ms;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.show-full-button:hover {
+    opacity: 0.8;
+    width: 100%;
+    height: 100%;
+}
+
+.show-enter-from, .show-leave-to {
+    opacity: 0;
+}
+
+.show-leave-active, .show-enter-active {
+    transition: opacity 0.3s;
+}
+
+.show-enter-to, .show-leave-from {
+    opacity: 1;
 }
 </style>
