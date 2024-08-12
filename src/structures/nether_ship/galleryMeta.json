@@ -1,0 +1,29 @@
+{
+    "images": [
+        {
+            "imagePath": "1.jpg",
+            "title": "Адский корабль сбоку",
+            "author": "_StarBaX_"
+        },
+        {
+            "imagePath": "2.jpg",
+            "author": "_StarBaX_"
+        },
+        {
+            "imagePath": "3.jpg",
+            "author": "_StarBaX_"
+        },
+        {
+            "imagePath": "4.jpg",
+            "author": "_StarBaX_"
+        },
+        {
+            "imagePath": "5.jpg",
+            "author": "_StarBaX_"
+        },
+        {
+            "imagePath": "6.jpg",
+            "author": "_StarBaX_"
+        }
+    ]
+}
