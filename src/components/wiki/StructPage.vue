@@ -47,6 +47,8 @@ onMounted(async () => {
     } catch (e) {
         await router.push({name: "notfound"})
     }
+    document.querySelector('meta[property="og:url"]')!.setAttribute("content", `https://www.w2sw.justxale.com/struct/${props.id}`);
+    document.querySelector('meta[property="og:title"]')!.setAttribute("content", `${title.value} | W2SW`);
 })
 </script>
 
