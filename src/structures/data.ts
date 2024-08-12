@@ -21,7 +21,7 @@ export type CollapsableTabMeta = {
 }
 
 export type GalleryImage = {
-    title: string,
+    title?: string,
     imagePath: string,
     author?: string
 }
@@ -90,8 +90,14 @@ export const dataMapping = async (): Promise<Record<string, DataRecord>> => {
             const galleryMeta = await import(`./${data.id}/galleryMeta.json`) as GalleryMeta
             const images: GalleryImage[] = []
             for (const image of galleryMeta.images) {
+                const buf: GalleryImage = {
+                    imagePath: image.imagePath
+                }
+                image.title ? buf.title = image.title : buf.title = 'Без заголовка'
+                image.author ? buf.author = image.author : buf.author = undefined
+
                 images.push(
-                    { title: image.title, imagePath: `/structs/${data.id}_images/${image.imagePath}`, author: image.author }
+                    { title: buf.title, imagePath: `/structs/${data.id}_images/${buf.imagePath}`, author: buf.author }
                 )
             }
             res[data.id].images = images;
