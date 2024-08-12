@@ -61,4 +61,11 @@ onUnmounted(() => {
     justify-content: center;
 }
 
+#fullscreened-slide-img {
+    max-height: 80vh;
+    max-width: 80vw;
+    height: auto;
+    width: auto;
+}
+
 </style>

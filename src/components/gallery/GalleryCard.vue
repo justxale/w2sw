@@ -10,7 +10,6 @@ const isActive = ref<boolean>(false)
 provide('isActive', isActive)
 const imageUrl = `${window.location.protocol}//${window.location.host}${props.image.imagePath}`
 const style = `background: url("${imageUrl}") center center / cover no-repeat`
-
 </script>
 
 <template>
