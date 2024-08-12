@@ -7,15 +7,11 @@ import GalleryCard from "./GalleryCard.vue";
 defineProps<{
     galleryData: GalleryImage[]
 }>()
-
-
 const splideOptions = ref<Options>({
     type: 'loop',
-    fixedHeight: "min(60vw, 600px)",
     fixedWidth: "min(80vw, 800px)",
     perPage: 1,
     width: "min(80vw, 1200px)",
-    cover: true,
     gap: "32px",
     focus: 'center'
 })
@@ -23,7 +19,8 @@ const splideOptions = ref<Options>({
 
 <template>
     <div class="gallery-container">
-        <Splide :options="splideOptions">
+        <h1>Галерея</h1>
+        <Splide :options="splideOptions" style="align-self: center">
             <GalleryCard v-for="image in galleryData" :image="image"/>
         </Splide>
     </div>
@@ -32,10 +29,17 @@ const splideOptions = ref<Options>({
 <style scoped>
 .gallery-container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     padding-bottom: 32px;
-    padding-top: 32px;
     border-bottom: var(--color-white-200) 1px solid;
     border-top: var(--color-white-200) 1px solid;
+}
+</style>
+
+<style>
+.splide__arrow {
+    height: 6em !important;
+    width: 3em !important;
+    border-radius: unset !important;
 }
 </style>

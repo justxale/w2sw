@@ -2,14 +2,14 @@ export type DataRecord = {
     id: string,
     title: string,
     previewPic: string
-    mdDescription?: string,
-    mdParagraph?: string,
-    mdCredits?: string,
+    mdDescription: string,
+    mdParagraph: string,
+    mdCredits: string,
 
-    hasTab?: boolean
+    hasTab: boolean
     tabData?: CollapsableTabMeta,
 
-    hasImages?: boolean,
+    hasImages: boolean,
     images?: GalleryImage[],
 }
 
@@ -21,7 +21,7 @@ export type CollapsableTabMeta = {
 }
 
 export type GalleryImage = {
-    title: string,
+    title?: string,
     imagePath: string,
     author?: string
 }
@@ -31,8 +31,11 @@ type GalleryMeta = {
 }
 
 export const basicStructureData = [
-    {id: 'amethyst_tree', title: "Аметистовое Дерево"},
+    {id: 'amethyst_tree', title: "Аметистовое дерево"},
     {id: 'sculk_sanctuary', title: "Скалковое святилище"},
+    {id: 'aether_portal', title: "Портал в Рай"},
+    {id: 'nether_ship', title: "Адский корабль"},
+    {id: 'realms_fountain', title: "Фонтан города Реалмс"},
 ]
 
 export function checkForDataExistence(id: string) {
@@ -46,7 +49,14 @@ export const dataMapping = async (): Promise<Record<string, DataRecord>> => {
         res[data.id] = {
             id: data.id,
             title: data.title,
-            previewPic: ''
+            previewPic: (await import(`./preview-placeholder.jpg`)).default,
+
+            mdDescription: "Описание ещё не готово :(",
+            mdParagraph: "Основная статья ещё не готова :(",
+            mdCredits: "Список авторов ещё не готов :(",
+
+            hasImages: false,
+            hasTab: false
         }
         try {
             res[data.id].mdDescription = (await import(`./${data.id}/description.md`)).default
@@ -66,7 +76,7 @@ export const dataMapping = async (): Promise<Record<string, DataRecord>> => {
         try {
             res[data.id].previewPic = (await import(`./${data.id}/preview.jpg`)).default
         } catch {
-            console.warn(`File preview.png for structure ${data.id} is missing!`)
+            console.warn(`File preview.jpg for structure ${data.id} is missing!`)
         }
 
         try {
@@ -83,8 +93,14 @@ export const dataMapping = async (): Promise<Record<string, DataRecord>> => {
             const galleryMeta = await import(`./${data.id}/galleryMeta.json`) as GalleryMeta
             const images: GalleryImage[] = []
             for (const image of galleryMeta.images) {
+                const buf: GalleryImage = {
+                    imagePath: image.imagePath
+                }
+                image.title ? buf.title = image.title : buf.title = 'Без заголовка'
+                image.author ? buf.author = image.author : buf.author = undefined
+
                 images.push(
-                    { title: image.title, imagePath: `/structs/${data.id}_images/${image.imagePath}`, author: image.author }
+                    { title: buf.title, imagePath: `/structs/${data.id}_images/${buf.imagePath}`, author: buf.author }
                 )
             }
             res[data.id].images = images;

@@ -30,9 +30,9 @@ onMounted(async () => {
         const fetchedData = (await dataMapping())[props.id]
         title.value = fetchedData.title
         document.title = `${title.value} | W2SW`
-        description.value = fetchedData.mdDescription ? fetchedData.mdDescription : ''
-        paragraph.value = fetchedData.mdParagraph ? fetchedData.mdParagraph : ''
-        credits.value = fetchedData.mdCredits ? fetchedData.mdCredits : ''
+        description.value = fetchedData.mdDescription
+        paragraph.value = fetchedData.mdParagraph
+        credits.value = fetchedData.mdCredits
         previewUrl = fetchedData.previewPic
 
         if (fetchedData.hasTab && fetchedData.tabData) {
@@ -69,7 +69,7 @@ onMounted(async () => {
 <style scoped>
 .title {
     display: flex;
-    gap: 32px;
+    justify-content: space-between;
 }
 
 .title img {
