@@ -1,7 +1,12 @@
 {
     "images": [
         {
-            "imagePath": "1.jpg"
+            "imagePath": "1.jpg",
+            "author": "MisTic"
+        },
+        {
+            "imagePath": "2.jpg",
+            "author": "justxale"
         }
     ]
 }
